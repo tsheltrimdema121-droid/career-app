@@ -10,22 +10,32 @@ business:0
 const questions = [
 
 {
-question:"What activity do you enjoy most?",
+question:"What activity do you enjoy the most?",
 choices:[
-{text:"Coding or building apps", type:"tech"},
-{text:"Designing graphics", type:"creative"},
-{text:"Helping people", type:"people"},
-{text:"Starting a business", type:"business"}
+{text:"Coding or building apps",type:"tech"},
+{text:"Designing graphics or art",type:"creative"},
+{text:"Helping or teaching people",type:"people"},
+{text:"Running a business idea",type:"business"}
 ]
 },
 
 {
-question:"Which project sounds exciting?",
+question:"Which school project excites you?",
 choices:[
-{text:"Build a website", type:"tech"},
-{text:"Create digital art", type:"creative"},
-{text:"Lead a community project", type:"people"},
-{text:"Launch a startup", type:"business"}
+{text:"Building a website",type:"tech"},
+{text:"Making a poster or design",type:"creative"},
+{text:"Organizing a group activity",type:"people"},
+{text:"Selling a product",type:"business"}
+]
+},
+
+{
+question:"What skill do you want to learn?",
+choices:[
+{text:"Programming",type:"tech"},
+{text:"Photography or design",type:"creative"},
+{text:"Communication",type:"people"},
+{text:"Marketing",type:"business"}
 ]
 }
 
@@ -33,11 +43,11 @@ choices:[
 
 function showQuestion(){
 
-let q = questions[questionIndex]
+let q=questions[questionIndex]
 
-document.getElementById("question").innerText = q.question
+document.getElementById("question").innerText=q.question
 
-let choicesDiv = document.getElementById("choices")
+let choicesDiv=document.getElementById("choices")
 choicesDiv.innerHTML=""
 
 q.choices.forEach(choice=>{
@@ -53,9 +63,13 @@ scores[choice.type]++
 questionIndex++
 
 if(questionIndex<questions.length){
+
 showQuestion()
+
 }else{
+
 showResult()
+
 }
 
 }
@@ -77,14 +91,13 @@ let businessP=Math.round(scores.business/total*100)
 
 let career="Software Developer"
 
-document.body.innerHTML=
+document.body.innerHTML=`
 
-`
 <h1>Your Career Result</h1>
 
 <h2>${career}</h2>
 
-<p>Your Strengths</p>
+<p>Your personality score:</p>
 
 <ul>
 <li>Technology: ${techP}%</li>
@@ -95,11 +108,16 @@ document.body.innerHTML=
 
 <h3>Suggested Skills</h3>
 
-<p>Problem Solving • Communication • Teamwork</p>
+<p>Problem solving • Communication • Teamwork • Digital skills</p>
 
-<h2>Thank you for taking the test!</h2>
+<h3>Possible Bhutan Opportunities</h3>
 
-<a href="index.html">Return Home</a>
+<p>Bhutan Telecom • Druk Holding & Investments • Tashi Group</p>
+
+<h2>Thank you for taking the career test!</h2>
+
+<a href="index.html">Return to Home</a>
+
 `
 
 }
