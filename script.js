@@ -7,35 +7,105 @@ people:0,
 business:0
 }
 
-const questions = [
+const questions=[
 
 {
-question:"What activity do you enjoy the most?",
+question:"What would you enjoy doing on a free weekend?",
 choices:[
-{text:"Coding or building apps",type:"tech"},
-{text:"Designing graphics or art",type:"creative"},
-{text:"Helping or teaching people",type:"people"},
-{text:"Running a business idea",type:"business"}
+{text:"Building a small app or fixing a device",type:"tech"},
+{text:"Drawing, painting, or photography",type:"creative"},
+{text:"Helping organize a community event",type:"people"},
+{text:"Planning a way to earn money",type:"business"}
 ]
 },
 
 {
-question:"Which school project excites you?",
+question:"Which activity sounds most exciting?",
 choices:[
-{text:"Building a website",type:"tech"},
-{text:"Making a poster or design",type:"creative"},
-{text:"Organizing a group activity",type:"people"},
-{text:"Selling a product",type:"business"}
+{text:"Learning how websites work",type:"tech"},
+{text:"Creating posters or designs",type:"creative"},
+{text:"Teaching someone a new skill",type:"people"},
+{text:"Selling products online",type:"business"}
 ]
 },
 
 {
-question:"What skill do you want to learn?",
+question:"What type of videos do you watch the most?",
+choices:[
+{text:"Technology or coding tutorials",type:"tech"},
+{text:"Art or design tutorials",type:"creative"},
+{text:"Motivational or educational talks",type:"people"},
+{text:"Business success stories",type:"business"}
+]
+},
+
+{
+question:"In a group project you usually...",
+choices:[
+{text:"Solve technical problems",type:"tech"},
+{text:"Design slides and visuals",type:"creative"},
+{text:"Encourage and guide teammates",type:"people"},
+{text:"Plan and manage the project",type:"business"}
+]
+},
+
+{
+question:"Which skill do you want to improve?",
 choices:[
 {text:"Programming",type:"tech"},
-{text:"Photography or design",type:"creative"},
+{text:"Graphic design",type:"creative"},
 {text:"Communication",type:"people"},
-{text:"Marketing",type:"business"}
+{text:"Leadership",type:"business"}
+]
+},
+
+{
+question:"What type of challenge excites you?",
+choices:[
+{text:"Fixing technical issues",type:"tech"},
+{text:"Creating something unique",type:"creative"},
+{text:"Helping people solve problems",type:"people"},
+{text:"Making a business idea work",type:"business"}
+]
+},
+
+{
+question:"Which environment sounds interesting?",
+choices:[
+{text:"Working with computers",type:"tech"},
+{text:"Working in a design studio",type:"creative"},
+{text:"Working with communities",type:"people"},
+{text:"Running a company",type:"business"}
+]
+},
+
+{
+question:"Which subject would you explore more?",
+choices:[
+{text:"Computer Science",type:"tech"},
+{text:"Art and Media",type:"creative"},
+{text:"Psychology or Education",type:"people"},
+{text:"Economics or Business",type:"business"}
+]
+},
+
+{
+question:"What motivates you the most?",
+choices:[
+{text:"Creating useful technology",type:"tech"},
+{text:"Expressing creativity",type:"creative"},
+{text:"Helping others succeed",type:"people"},
+{text:"Achieving financial success",type:"business"}
+]
+},
+
+{
+question:"What would you love to create?",
+choices:[
+{text:"A mobile app",type:"tech"},
+{text:"A digital artwork",type:"creative"},
+{text:"A community program",type:"people"},
+{text:"A startup company",type:"business"}
 ]
 }
 
@@ -63,13 +133,9 @@ scores[choice.type]++
 questionIndex++
 
 if(questionIndex<questions.length){
-
 showQuestion()
-
 }else{
-
 showResult()
-
 }
 
 }
@@ -89,15 +155,24 @@ let creativeP=Math.round(scores.creative/total*100)
 let peopleP=Math.round(scores.people/total*100)
 let businessP=Math.round(scores.business/total*100)
 
-let career="Software Developer"
+let career="Technology Explorer"
+
+if(creativeP>techP && creativeP>peopleP && creativeP>businessP)
+career="Creative Designer"
+
+if(peopleP>techP && peopleP>creativeP && peopleP>businessP)
+career="People Leader"
+
+if(businessP>techP && businessP>creativeP && businessP>peopleP)
+career="Business Innovator"
 
 document.body.innerHTML=`
 
-<h1>Your Career Result</h1>
+<h1>Your Career Personality</h1>
 
 <h2>${career}</h2>
 
-<p>Your personality score:</p>
+<p>Your Interest Scores</p>
 
 <ul>
 <li>Technology: ${techP}%</li>
@@ -106,17 +181,15 @@ document.body.innerHTML=`
 <li>Business: ${businessP}%</li>
 </ul>
 
-<h3>Suggested Skills</h3>
+<h3>Suggested Careers</h3>
 
-<p>Problem solving • Communication • Teamwork • Digital skills</p>
+<p>
+Software Developer • Graphic Designer • Teacher • Entrepreneur
+</p>
 
-<h3>Possible Bhutan Opportunities</h3>
+<h2>Thank you for exploring your future career!</h2>
 
-<p>Bhutan Telecom • Druk Holding & Investments • Tashi Group</p>
-
-<h2>Thank you for taking the career test!</h2>
-
-<a href="index.html">Return to Home</a>
+<a href="index.html">Back to Home</a>
 
 `
 

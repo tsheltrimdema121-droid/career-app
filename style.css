@@ -17,10 +17,6 @@ background:linear-gradient(135deg,#1f3c88,#4CAF50);
 color:white;
 }
 
-.hero h2{
-font-size:40px;
-}
-
 .buttons{
 margin-top:30px;
 }
@@ -45,6 +41,7 @@ padding:12px 20px;
 margin:10px;
 font-size:16px;
 border-radius:8px;
+cursor:pointer;
 }
 
 #dashboard{
