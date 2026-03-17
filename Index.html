@@ -4,6 +4,7 @@
 <head>
 <title>FuturePath Bhutan</title>
 <link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -27,13 +28,13 @@ insights from the survey dashboard.
 
 <a href="quiz.html" class="btn">Take Career Test</a>
 <a href="report.html" class="btn">View Research Report</a>
-<a href="#dashboard" class="btn">View Dashboard</a>
+<button onclick="toggleDashboard()" class="btn">View Dashboard</button>
 
 </div>
 
 </section>
 
-<section id="dashboard">
+<section id="dashboard" style="display:none;">
 
 <h2>Career Readiness Dashboard</h2>
 
@@ -41,11 +42,14 @@ insights from the survey dashboard.
 The interactive dashboard below shows insights collected from my research survey.
 </p>
 
+<div class="dashboard-container">
 <iframe
-src="https://public.tableau.com/views/SurvayStoryPoint/Story1?:showVizHome=no&:embed=true"
-width="100%"
-height="650">
+src="https://public.tableau.com/views/SurvayStoryPoint/Story1?:showVizHome=no&:embed=true">
 </iframe>
+</div>
+
+<br>
+<button onclick="toggleDashboard()">Close Dashboard</button>
 
 </section>
 
@@ -53,6 +57,18 @@ height="650">
 <p>Created by Tsheltrim Dema</p>
 </footer>
 
-</body>
+<script>
+function toggleDashboard(){
+let dash = document.getElementById("dashboard");
 
+if(dash.style.display === "none"){
+dash.style.display = "block";
+dash.scrollIntoView({behavior:"smooth"});
+}else{
+dash.style.display = "none";
+}
+}
+</script>
+
+</body>
 </html>
